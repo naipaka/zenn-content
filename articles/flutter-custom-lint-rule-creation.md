@@ -2,8 +2,9 @@
 title: "【Flutter】Custom Lintを使って独自のLintルールを作成する"
 emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [Flutter,Dart,CustomLint, Lint]
-published: false
+topics: [flutter,dart,customlint, lint]
+published: true
+published_at: 2023-12-17
 publication_name: "altiveinc"
 ---
 
