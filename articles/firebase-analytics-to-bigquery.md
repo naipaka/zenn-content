@@ -3,7 +3,7 @@ title: "Flutterアプリから送信したFirebase AnalyticsのデータをBigQu
 emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["firebase", "bigquery", "analytics", "flutter"]
-published: false
+published: true
 publication_name: "altiveinc"
 ---
 
