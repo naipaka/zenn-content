@@ -92,6 +92,8 @@ class LikeOnlyPage extends ConsumerWidget {
 この実装では、いいねボタンを押した際に、APIリクエストを送信し、その後にいいねの状態を再取得しています。
 この形だと、リクエストが完了するまでUIが変わらないので、ユーザーの操作に対する応答が遅くなってしまいよくないですね。
 
+![](/images/non-optimistic-like-button.gif)
+
 ### Optimistic Update 対応
 
 上記の実装を元に、Optimistic Update を実現します。
@@ -151,6 +153,8 @@ class LikeOnlyPage extends ConsumerWidget {
 ```
 
 これで、いいねボタンの Optimistic Update を実現することができました！
+
+![](/images/optimistic-like-button.gif)
 
 :::details 完成形
 ```dart
