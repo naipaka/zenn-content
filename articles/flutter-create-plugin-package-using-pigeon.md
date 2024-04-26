@@ -2,7 +2,7 @@
 title: "【Flutter】Pigeon を使って Plugin Package を作成する"
 emoji: "🐦"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["firebase", "dart", "pigeon", "plugin", "package"]
+topics: ["flutter", "dart", "pigeon", "plugin", "package"]
 published: true
 publication_name: "altiveinc"
 ---
