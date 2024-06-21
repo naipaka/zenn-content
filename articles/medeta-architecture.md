@@ -4,6 +4,7 @@ emoji: "🌱"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart", "go", "openapi", "googlecloud"]
 published: false
+publication_name: "altiveinc"
 ---
 
 ## はじめに
