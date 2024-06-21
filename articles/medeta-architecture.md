@@ -87,9 +87,10 @@ medeta_app_packages/
 
 ### 状態管理
 
-ephemeral state と app state を踏まえて、 [hooks_riverpod](https://pub.dev/packages/hooks_riverpod) と [flutter_hooks](https://pub.dev/packages/flutter_hooks) を使い分けて状態管理をしています。
-
 https://docs.flutter.dev/data-and-backend/state-mgmt/ephemeral-vs-app
+
+ephemeral state と app state を踏まえて、 [hooks_riverpod](https://pub.dev/packages/hooks_riverpod) と [flutter_hooks](https://pub.dev/packages/flutter_hooks) を使い分けて状態管理をしています。
+また、Provider は [riverpod_generator](https://pub.dev/packages/riverpod_generator) を使って生成しています。
 
 ### API Client
 
