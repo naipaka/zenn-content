@@ -3,7 +3,8 @@ title: "めでた！の技術構成"
 emoji: "🌱"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["flutter", "dart", "go", "openapi", "googlecloud"]
-published: false
+published: true
+published_at: 2024-06-24 12:00
 publication_name: "altiveinc"
 ---
 
