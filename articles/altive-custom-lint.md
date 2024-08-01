@@ -3,7 +3,7 @@ title: "【Flutter】altive_lints に追加したカスタム Lint ルールを�
 emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [flutter,dart,customlint, lint]
-published: false
+published: true
 publication_name: "altiveinc"
 ---
 
