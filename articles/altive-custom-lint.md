@@ -36,9 +36,9 @@ https://zenn.dev/altiveinc/articles/flutter-custom-lint-rule-creation
 
 `CustomScrollView` の `slivers` に `SliverToBoxAdapter` が連続して配置されている場合に警告を出すルールです。
 
-`SliverToBoxAdapter` は viewport 外に配置されるため、複数使用すると、パフォーマンスが低下する可能性があります。
+`SliverToBoxAdapter` は viewport 外に配置されてもレイアウトされるため、複数使用するとパフォーマンスが低下する可能性があります。
 
-また、公式ドキュメントで、複数の`SliverToBoxAdapter` を使用するよりも、`SliverList`、`SliverFixedExtentList`、`SliverPrototypeExtentList`、または`SliverGrid`を使用することが推奨されています。
+また公式ドキュメントでも、複数の`SliverToBoxAdapter` を使用するよりも、`SliverList`、`SliverFixedExtentList`、`SliverPrototypeExtentList`、または`SliverGrid`を使用することが推奨されています。
 
 > Rather than using multiple SliverToBoxAdapter widgets to display multiple box widgets in a CustomScrollView, consider using SliverList, SliverFixedExtentList, SliverPrototypeExtentList, or SliverGrid, which are more efficient because they instantiate only those children that are actually visible through the scroll view's viewport.
 
