@@ -6,6 +6,8 @@
         "apikey",
         "configurator",
         "customlint",
+        "dartdoc",
+        "endtemplate",
         "flutterfire",
         "googlecloud",
         "googlemap",
