@@ -4,6 +4,7 @@ emoji: "📝"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [flutter,dart,dartdoc,customlint,lint]
 published: false
+publication_name: "altiveinc"
 ---
 
 本記事は、[Flutter Advent Calendar 2024](https://qiita.com/advent-calendar/2024/flutter) の 15 日目の記事です。
