@@ -2,8 +2,9 @@
 title: "【Flutter/Dart】dartdoc の Macros を使ってドキュメントコメントを再利用する"
 emoji: "📝"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [flutter,dart,dartdoc,customlint,lint]
-published: false
+topics: ["flutter", "dart", "dartdoc", "customlint", "lint"]
+published: true
+published_at: 2024-12-15 10:00
 publication_name: "altiveinc"
 ---
 
@@ -16,7 +17,7 @@ publication_name: "altiveinc"
 本記事では [dartdoc](https://pub.dev/packages/dartdoc) の [Macros](https://pub.dev/packages/dartdoc#macros) について紹介します。少しニッチなお話です。
 
 :::message
-現在 Experimental な機能として提供されている [Dart macro system](https://dart.dev/language/macros) の話ではありません🙏
+現在 experimental な機能として提供されている [Dart macro system](https://dart.dev/language/macros) の話ではありません🙏
 :::
 
 みなさんは、Dartのドキュメント生成ツールである `dartdoc` の `Macros` を使ったことがありますか？
@@ -60,13 +61,16 @@ https://pub.dev/packages/dartdoc#macros
 
 注意点として、テンプレートの定義はスコープが全体に適用されます。
 
-`dartdoc` がテンプレートを含むファイルを読み取ると、
+つまり、`dartdoc` がテンプレートを含むファイルを読み取ると、
 そのテンプレートが `dartdoc` が現在処理しているすべてのドキュメントで使用可能になります。
 
 この仕様により、異なるパッケージで `dartdoc` を実行された場合、テンプレートが衝突する可能性があります。
 そのため、テンプレート名にはパッケージ名やライブラリ名を含めるなど、衝突を避ける工夫が推奨されています。
 
-利用されている例を見ると、テンプレート名は `.` で区切られた名前空間を持つことが多いようです。
+利用されている例を見ると、テンプレート名は `.` で区切られた名前空間を定義していることが多いみたいですね。
+
+- `flutter.widgets.PageRoute.fullscreenDialog`
+- `hooks_riverpod.hookconsumer.hookconsumerwidget`
 
 https://github.com/flutter/flutter/blob/c9477b4306a1ea9ef48bb1cb21f2b9c3e8d19622/packages/flutter/lib/src/widgets/pages.dart#L33-L40
 
@@ -75,24 +79,23 @@ https://github.com/rrousselGit/riverpod/blob/288c9b53e308f902f6309eba1c173bf745e
 ## `dartdoc` の `Macros` の活用例
 
 主に公開パッケージのドキュメントで活用されているようですが、
-アプリ開発内での活用例としては、以下のような場面が考えられます。
+アプリ開発での活用例としては、以下のような場面が考えられます。
 
 ### 1. 同じコメントを複数のファイルで使い回す
 
 「同じコメントを使う箇所なんてそんなにあるだろうか？」と思われるかもしれませんが、
-規模が大きくなってきたりすると、意外と使い回しできるコメントがあるかと思います。
+規模が大きくなってきたりすると、意外と使い回しできるコメントが見つかるかもしれません。
 
 私が参画しているプロジェクトでは、以下のようなコメントが複数のファイルで繰り返し使われていたり、
 他にも使い回しが可能なコメントが意外とありました。
 
 ```dart
-/// xxx。 
+/// xxx
 ///
 /// ルート設定していないため `Navigator.push` を使用して遷移させる。
 class XxxView extends StatelessWidget {
 ```
 
-皆さんも、自身のプロジェクトで探してみると意外と使い回しできるコメントがあるかもしれません！
 少しでもコメントを共通化することで、ドキュメントの一貫性を保つことができます。
 
 ### 2. クラスの説明とコンストラクタの説明を同一にする
@@ -137,15 +140,16 @@ class User {
 | Doc Comment | ![before](/images/dartdoc-macros-before.png)     | ![after](/images/dartdoc-macros-after.png)     |
 | 利用側      | ![before](/images/dartdoc-macros-use-before.png) | ![after](/images/dartdoc-macros-use-after.png) |
 
-Riverpod でも同様の活用例が見られます。（目的はもしかしたら違うかもしれません💭）
+Riverpod でも同様の活用例が見られますね。（目的はもしかしたら違うかもしれません…💭）
 
 https://github.com/rrousselGit/riverpod/blob/288c9b53e308f902f6309eba1c173bf745e0cfaa/packages/hooks_riverpod/lib/src/consumer.dart#L5-L17
 
 ## `dartdoc` の `Macros` を使った doc comment を生成するアシスト機能
 
-少しでも手間を減らすために、`dartdoc` の `Macros` を使った doc comment を生成するアシスト機能を作成しました！
+手間を少しでも減らすために、`dartdoc` の `Macros` を使った doc comment を生成するアシスト機能を作成しました！
 
-以下3つの機能を [altive_lints](https://pub.dev/packages/altive_lints) に追加しています。気になる方はぜひ使ってみてください！
+以下3つの機能を [altive_lints](https://pub.dev/packages/altive_lints) に追加予定です。（[Pull Request](https://github.com/altive/altive_lints/pull/78)）
+追加された後、気になる方はぜひ使ってみてください！
 
 ### 1. Add macro template documentation comment
 
@@ -179,17 +183,17 @@ class MyClass {
 **Before:**
 
 ```dart
-void myFunction() {
-  // Function implementation
+class MyClass {
+  const MyClass();
 }
 ```
 
 **アシスト適用後:**
 
 ```dart
-/// {@macro my_package.myFunction}
-void myFunction() {
-  // Function implementation
+class MyClass {
+  /// {@macro my_package.MyClass}
+  const MyClass();
 }
 ```
 
