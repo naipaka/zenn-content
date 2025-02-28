@@ -4,11 +4,14 @@
         "altiveinc",
         "androidx",
         "apikey",
+        "cicd",
+        "Codemagic",
         "configurator",
         "customlint",
         "dartdoc",
         "endtemplate",
         "flutterfire",
+        "githubactions",
         "googlecloud",
         "googlemap",
         "hookconsumer",
@@ -26,6 +29,7 @@
         "Ryosuke",
         "timelapse",
         "UNNEST",
+        "xcodecloud",
         "xcworkspace",
         "zenn"
     ]
